@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 18:28:14 by mjay              #+#    #+#             */
-/*   Updated: 2020/12/29 21:44:03 by jaewkim          ###   ########.fr       */
+/*   Updated: 2020/12/31 23:08:54 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void			*ft_calloc(size_t cnt, size_t size);
 
 char			*ft_strdup(const char *s1);
 
-
+char			*ft_strjoin(char const	*s1, char const	*s2);
 #endif

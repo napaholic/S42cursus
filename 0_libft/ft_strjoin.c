@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/29 18:23:42 by jaewkim           #+#    #+#             */
-/*   Updated: 2020/12/30 16:51:09 by jaewkim          ###   ########.fr       */
+/*   Created: 2020/12/30 17:05:52 by jaewkim           #+#    #+#             */
+/*   Updated: 2020/12/31 22:56:29 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const	*s1, char const	*s2)
 {
 	char	*result;
-	size_t	slen;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	if (s == NULL)
+	if (!s1 || !s2)
 		return (NULL);
-	if (len == 0)
-		return (result);
-	if ((result = ft_calloc(sizeof(char), len + 1)) == NULL)
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	if ((result = (char*)malloc(sizeof(char) * (s1_len + s2_len + 1))) == NULL)
 		return (NULL);
-	slen = ft_strlen(s);
-	if (start >= slen)
-		return (result);
-	if (start + len > slen)
-		len = slen - start;
-	ft_strlcpy(result, s + start, len + 1);
+	ft_memcpy(result, s1, s1_len);
+	ft_memcpy(result + s1_len, s2, s2_len);
+	result[s1_len + s2_len] = 0;
 	return (result);
 }
