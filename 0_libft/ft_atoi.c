@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 19:08:59 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/02 19:08:31 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/07 19:16:24 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int				ft_atoi(char *s)
 		++s;
 	while (ft_isdigit(*s) && tmp <= LLONG_MAX)
 		tmp = tmp * 10 + (*s & ~48);
-	if ((tmp > LLONG_MAX && isminus == 1) ||
-		(tmp > LLONG_MIN && isminus == -1))
+	if ((tmp > (unsigned long long)LLONG_MAX && isminus == 1) ||
+		(tmp > (unsigned long long)LLONG_MIN && isminus == -1))
 		return (isminus == 1 ? 0 : -1);
 	return (isminus * (long long)tmp);
 }

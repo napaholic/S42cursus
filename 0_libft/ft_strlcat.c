@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 17:55:13 by jaewkim           #+#    #+#             */
-/*   Updated: 2020/12/28 18:32:57 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/07 19:14:47 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dstsize;
 	size_t	idx;
 
 	idx = 0;

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 17:34:00 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/07 19:17:09 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/01/07 13:50:59 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/01/07 18:44:07 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	while (*s)
+	char *idx;
+
+	idx = (char *)s;
+	while (*idx != '\0')
+		++idx;
+	while (*s != *idx)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		++s;
+		if (*idx == (unsigned char)c)
+			return ((char *)idx);
+		--idx;
 	}
 	return (NULL);
 }

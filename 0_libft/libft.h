@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 18:28:14 by mjay              #+#    #+#             */
-/*   Updated: 2021/01/07 13:08:00 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/07 19:19:01 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size);
 
 char			*ft_strchr(const char *s, int c);
 
-int				ft_strncmp(const char *s1, const char s2, size_t num);
+int				ft_strncmp(const char *s1, const char *s2, size_t num);
 
 int				ft_atoi(char *s);
 
