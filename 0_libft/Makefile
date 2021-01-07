@@ -6,7 +6,7 @@
 #    By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 16:27:34 by mjay              #+#    #+#              #
-#    Updated: 2020/12/25 23:48:56 by jaewkim          ###   ########.fr        #
+#    Updated: 2021/01/07 19:34:19 by mjay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,4 +77,4 @@ re : fclean all
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-
+.PHONY : clean fclean re bonus all
