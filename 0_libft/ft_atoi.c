@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 19:08:59 by jaewkim           #+#    #+#             */
-/*   Updated: 2020/12/29 06:05:43 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/02 19:08:31 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static int		ft_isspace(int c)
 	return (0);
 }
 
-int	ft_atoi(char *s)
+int				ft_atoi(char *s)
 {
 	unsigned long long	tmp;
 	int					isminus;
 
 	tmp = 0;
 	isminus = 1;
-	while(ft_isspace(*s))
+	while (ft_isspace(*s))
 		++s;
 	if (*s == '-' || *s == '+')
 	{
@@ -39,9 +39,9 @@ int	ft_atoi(char *s)
 			isminus = -1;
 		++s;
 	}
-	while(*s == '0')
+	while (*s == '0')
 		++s;
-	while(ft_isdigit(*s) && tmp <= LLONG_MAX)
+	while (ft_isdigit(*s) && tmp <= LLONG_MAX)
 		tmp = tmp * 10 + (*s & ~48);
 	if ((tmp > LLONG_MAX && isminus == 1) ||
 		(tmp > LLONG_MIN && isminus == -1))

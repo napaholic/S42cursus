@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 18:28:39 by mjay              #+#    #+#             */
-/*   Updated: 2021/01/07 01:13:34 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/01/07 10:29:25 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/01/07 13:38:16 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_memset(s, 0, n);
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 18:28:39 by mjay              #+#    #+#             */
-/*   Updated: 2021/01/07 01:13:34 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/01/07 13:07:17 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/01/07 13:14:23 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	ft_memset(s, 0, n);
+	char	*s;
+
+	s = ft_itoa(n);
+	write(fd, s, ft_strlen(s));
 }

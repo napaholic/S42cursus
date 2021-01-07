@@ -6,17 +6,17 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 17:05:52 by jaewkim           #+#    #+#             */
-/*   Updated: 2020/12/31 22:56:29 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/02 19:06:19 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const	*s1, char const	*s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*result;
-	size_t	s1_len;
-	size_t	s2_len;
+	char		*result;
+	size_t		s1_len;
+	size_t		s2_len;
 
 	if (!s1 || !s2)
 		return (NULL);
