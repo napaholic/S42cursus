@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 16:35:05 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/07 01:19:25 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/08 15:51:33 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	size_t	get_cnt(long long n)
 	}
 	while (1)
 	{
-		if (n > 0)
+		if (n / 10 > 0)
 		{
 			n /= 10;
 			++cnt;
@@ -45,16 +45,20 @@ char			*ft_itoa(int n)
 
 	tmp_n = n;
 	cnt = get_cnt(tmp_n);
-	if ((result = malloc(sizeof(char) * cnt)) == NULL)
+	if ((result = malloc(sizeof(char) * cnt + 1)) == NULL)
 		return (NULL);
 	s = result;
 	if (n < 0)
-		*result = '-';
-	*(result + --cnt) = '\0';
-	while (tmp_n != 0)
 	{
-		*(result + --cnt) = tmp_n % 10;
+		*result = '-';
+		tmp_n *= -1;
+	}
+	*(result + cnt--) = '\0';
+	while (tmp_n / 10 > 0)
+	{
+		*(result + cnt--) = ((tmp_n % 10) | 48);
 		tmp_n /= 10;
 	}
+	*(result + cnt--) = tmp_n | 48;
 	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 03:09:13 by jaewkim           #+#    #+#             */
-/*   Updated: 2020/12/28 13:47:00 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/07 21:58:01 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	srclen;
-	size_t	tmp;
+	size_t	idx;
 
-	if (dst == NULL && src == NULL)
+	if (src == NULL)
 		return (0);
-	srclen = ft_strlen(src);
-	if (dstsize)
+	idx = 0;
+	if (dstsize > 0 && dst != NULL)
 	{
-		if (srclen > dstsize)
-			tmp = dstsize;
-		else
-			tmp = srclen;
-		ft_memcpy(dst, src, tmp);
-		dst[tmp] = '\0';
+		while (idx + 1 < dstsize && *(src + idx))
+		{
+			*(dst + idx) = *(src + idx);
+			++idx;
+		}
+		*(dst + idx) = '\0';
 	}
-	return (srclen);
+	while (*(src + idx) != '\0')
+		++idx;
+	return (idx);
 }

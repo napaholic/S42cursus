@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 22:21:48 by mjay              #+#    #+#             */
-/*   Updated: 2020/12/28 19:00:44 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/07 20:54:41 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char		*tmpdst;
-	const char	*tmpsrc;
+	unsigned char		*tmpdst;
+	const unsigned char	*tmpsrc;
 
-	tmpdst = (char *)dst;
-	tmpsrc = (const char *)src;
+	if (n == 0)
+		return (NULL);
+	tmpdst = (unsigned char *)dst;
+	tmpsrc = (const unsigned char *)src;
 	while (n--)
 	{
-		if (*tmpsrc == (unsigned char)c)
-			return ((void*)tmpsrc);
 		*tmpdst++ = *tmpsrc++;
+		if (*(tmpsrc - 1) == (unsigned char)c)
+			return ((void *)tmpdst);
 	}
 	return (NULL);
 }

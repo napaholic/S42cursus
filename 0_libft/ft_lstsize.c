@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 13:50:59 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/07 22:47:08 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/01/10 17:49:25 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/01/10 18:03:24 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int				ft_lstsize(t_list *lst)
 {
-	char *idx;
+	size_t			cnt;
 
-	idx = (char *)s;
-	while (*idx != '\0')
-		++idx;
-	while (idx - s >= 0)
+	cnt = 0;
+	while (lst != NULL)
 	{
-		if (*idx == (unsigned char)c)
-			return ((char *)idx);
-		--idx;
+		lst = lst->next;
+		++cnt;
 	}
-	return (NULL);
+	return (cnt);
 }

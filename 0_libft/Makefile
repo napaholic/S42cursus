@@ -6,7 +6,7 @@
 #    By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 16:27:34 by mjay              #+#    #+#              #
-#    Updated: 2021/01/07 19:34:19 by mjay             ###   ########.fr        #
+#    Updated: 2021/01/11 19:02:46 by mjay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 RMFLAG 	= -f
 INCLUDES = ./libft.h
+RM		 = rm -f
 
 SRC_P1 	= ./ft_memset.c	\
 	./ft_bzero.c	\
@@ -43,7 +44,7 @@ SRC_P1 	= ./ft_memset.c	\
 	./ft_toupper.c	\
 	./ft_tolower.c
 
-SRC_PART2 = \
+SRC_P2 = \
 	./ft_substr.c	\
 	./ft_strjoin.c	\
 	./ft_strtrim.c	\
@@ -55,19 +56,31 @@ SRC_PART2 = \
 	./ft_putendl_fd.c	\
 	./ft_putnbr_fd.c
 
+SRC_BONUS = \
+		./ft_lstnew.c \
+		./ft_lstsize.c \
+		./ft_lstlast.c \
+		./ft_lstadd_back.c \
+		./ft_lstadd_front.c \
+		./ft_lstdelone.c \
+		./ft_lstclear.c \
+		./ft_lstiter.c \
+		./ft_lstmap.c
+
 SRCS 	= \
 		$(SRC_P1)	\
-		$(SRC_p2)
+		$(SRC_P2)	\
+		$(SRC_BONUS)
 
 OBJS	= $(SRCS:.c=.o)
 
 all	:	$(NAME)
 
 clean :
-	rm $(RMFLAGS) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean : clean
-	rm $(RMFLAGS) $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all
 

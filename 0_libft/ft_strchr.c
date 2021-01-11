@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 17:34:00 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/07 19:17:09 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/07 21:49:14 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	char	*str;
+
+	str = (char *)s;
+	while (*str != c)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		++s;
+		if (*str == '\0')
+			return (NULL);
+		str++;
 	}
-	return (NULL);
+	return (str);
 }

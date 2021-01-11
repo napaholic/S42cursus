@@ -1,16 +1,14 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "~/S42cursus/0_libft/ft_toupper.c",
+            "name": "Lldb debug",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceRoot}"
         }
     ]
 }
