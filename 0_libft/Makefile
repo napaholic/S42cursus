@@ -6,12 +6,13 @@
 #    By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 16:27:34 by mjay              #+#    #+#              #
-#    Updated: 2021/01/11 19:02:46 by mjay             ###   ########.fr        #
+#    Updated: 2021/01/14 11:36:13 by mjay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 AR = ar
+RC = rc
 ARFLAGS = crs
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
@@ -69,12 +70,16 @@ SRC_BONUS = \
 
 SRCS 	= \
 		$(SRC_P1)	\
-		$(SRC_P2)	\
-		$(SRC_BONUS)
+		$(SRC_P2)
 
 OBJS	= $(SRCS:.c=.o)
 
+BOBJS	= $(SRC_BONUS:.c=.o)
+
 all	:	$(NAME)
+
+bonus: $(BOBJS) $(OBJS)
+		$(AR) $(RC) $(NAME) $^
 
 clean :
 	$(RM) $(OBJS)
