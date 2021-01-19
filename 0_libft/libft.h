@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 18:28:14 by mjay              #+#    #+#             */
-/*   Updated: 2021/01/11 19:16:06 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/01/19 12:30:18 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			*ft_memchr(const void *ptr, int value, size_t num);
 int				ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 size_t			ft_strlen(const char *str);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t			ft_strlcat(char *dst, const char *src, size_t size);
+size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strchr(const char *s, int c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strnstr(const char *big, const char *little, size_t len);

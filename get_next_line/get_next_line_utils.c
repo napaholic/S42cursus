@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/27 17:55:13 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/19 12:30:15 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/01/19 12:25:10 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/01/19 12:25:41 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int main()
 {
-	size_t	idx;
-
-	idx = 0;
-	while (*dst && idx < size)
-	{
-		++dst;
-		++idx;
-	}
-	while (*src && idx + 1 < size)
-	{
-		*dst++ = *src++;
-		++idx;
-	}
-	if (idx < size)
-		*dst = '\0';
-	while (*src++)
-		++idx;
-	return (idx);
+	return 0;
 }
