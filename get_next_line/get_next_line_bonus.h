@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 12:25:54 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/02/21 13:18:36 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/02/21 13:17:44 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 512
 # endif
 
 # ifndef OPEN_MAX
@@ -31,9 +31,9 @@
 
 int				get_next_line(int fd, char **line);
 
-size_t			ft_strlen(const char *str);
+size_t			ft_strlen_bonus(const char *str);
 
-char			*ft_strdup(char *s1);
+char			*ft_strdup_bonus(const char *s1);
 
-char			*ft_strjoin(char *s1, char *s2);
+char			*ft_strjoin_bonus(char *s1, char *s2);
 #endif

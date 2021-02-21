@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 11:27:39 by clim              #+#    #+#             */
-/*   Updated: 2021/01/20 19:28:38 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/02/09 00:26:50 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int				get_next_line(int fd, char **line)
 		idx = if_more_line(backup_buf[fd]);
 		if (idx >= 0)
 			return (sepr_line(&backup_buf[fd], idx, line));
-	}
+	} 
 	return (after_read_all(&backup_buf[fd], line, byte_read));
 }
