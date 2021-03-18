@@ -8,7 +8,7 @@
 			"args": [
 				"${file}",
 				//"${fileDirname}/get_next_line.h",
-				"${fileDirname}/get_next_line_utils.c",
+				//"${fileDirname}/get_next_line_utils.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}.out",
 				"-g",
