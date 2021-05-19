@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: mjay <jaewkim@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 10:29:25 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/03/25 20:13:41 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/03/30 02:33:21 by mjay              #+#    #+#             */
+/*   Updated: 2021/04/11 17:20:04 by mjay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdarg.h>
 
-void	ft_putchar_fd(char c, int fd)
+int main(int argc, const char *argv[])
 {
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
+	int a = 5;
+	int c = 6;
+	int d = -10;
+	int b = 0;
+	b = printf("%-010.3d\n", d);
+	printf("b is : %d\n", b);
 }

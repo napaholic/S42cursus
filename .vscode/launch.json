@@ -11,7 +11,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "${workspaceFolder}/1_ft_printf/test.out",
+			"program": "${workspaceFolder}/1_ft_printf/${file}.out",
 			"args": [],
 			"cwd": "${workspaceFolder}"
 		}

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_treat_option.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 10:29:25 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/03/25 20:13:41 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/04/10 15:38:26 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/04/11 15:45:44 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int				ft_treat_width(char *value_di_string, )
 {
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
+	
 }

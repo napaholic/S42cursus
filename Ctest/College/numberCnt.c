@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   numberCnt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: mjay <jaewkim@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 10:29:25 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/03/25 20:13:41 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/05/10 13:55:14 by mjay              #+#    #+#             */
+/*   Updated: 2021/05/19 10:53:49 by mjay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putchar_fd(char c, int fd)
+char *Calculate(char *a)
 {
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
+	int cnt;
+	char *result;
+	
+	cnt = 0
+}
+
+
+int main()
+{
+	int i;
+	char *first;
+	char *tmp;
+
+	first = "1"
+
+	i = 0;
+	while(i < 1000)
+	{
+		
+		i++;
+	}
 }

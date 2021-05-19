@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 10:29:25 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/03/25 20:13:41 by jaewkim          ###   ########.fr       */
+/*   Created: 2021/04/14 11:24:38 by jaewkim           #+#    #+#             */
+/*   Updated: 2021/04/14 20:36:25 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# ifndef LIBFT_H
+# define LIBFT_H
 
-void	ft_putchar_fd(char c, int fd)
-{
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
-}
+# include <stdio.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
+
+int						ft_isdigit(int c);
+long long				ft_atoi(char *s);
+
+#endif

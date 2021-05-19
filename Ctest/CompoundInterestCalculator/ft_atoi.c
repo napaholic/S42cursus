@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 19:08:59 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/04/14 11:55:05 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/04/14 11:58:38 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int		ft_isspace(int c)
 	return (0);
 }
 
-int				ft_atoi(char *s)
+long long				ft_atoi(char *s)
 {
 	unsigned long long	tmp;
 	int					isminus;
