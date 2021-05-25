@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:27:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/05/24 16:34:34 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/05/25 21:04:20 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			ft_export_data(char *word_string)
 	return ;
 }
 
-int				ft_di_word(t_flags *flags, char **input, int value_int)
+int				ft_di_word(t_flags *flags, int value_int)
 {
 	char			*value_di_string;
 	char			*value_result;
@@ -35,12 +35,13 @@ int				ft_di_word(t_flags *flags, char **input, int value_int)
 	di_string_cnt = ft_strlen(value_di_string);
 	num_cnt = flags->width > di_string_cnt ? flags->width : di_string_cnt;
 	num_cnt = flags->dot > num_cnt ? flags->dot : num_cnt;
-	ft_set_int(num_cnt, )
+	ft_set_int(num_cnt, di_string_cnt, value_di_string);
 
 	num_cnt =
 
 
-
+	free(value_di_string);
+	return 0;
 	/*
 	포맷에 맞게 데이터를 만들고 화면에 출력하고 출력한 수 많큼의 int를 반환.
 	포맷에 맞게 데이터를 만드는것

@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 14:48:10 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/04/11 17:22:11 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/05/25 21:04:12 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int				ft_setword(t_flag *flags, va_list ap)
 {
 	if (ft_strchr("di", flags->type))
-		return (ft_di_word(flags, input, va_arg(ap, int)));
+		return (ft_di_word(flags, va_arg(ap, int)));
 	if (ft_strchr("u", flags->type))
-		return (ft_u_word(flags, input, ap));
+		return (ft_u_word(flags, ap));
 	if (ft_strchr("xXp", flags->type))
 		return ();
 	if (ft_strchr("cs", flags->type))

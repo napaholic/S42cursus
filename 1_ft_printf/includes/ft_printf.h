@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 20:59:49 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/04/11 05:54:37 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/05/25 21:04:29 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,4 @@ void				ft_flag_dot(const char **input, t_flags *flags, va_list ap);
 void				ft_flag_asterisk(t_flags *flags, va_list ap);
 void				ft_flag_digit(char c, t_flags *flags);
 
-int				ft_di_word(t_flags *flags, char **input, int value_int)
+int				ft_di_word(t_flags *flags, int value_int)
