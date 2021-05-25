@@ -6,13 +6,22 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:27:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/04/11 22:09:14 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/05/24 16:34:34 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void			ft_print_width(size_t max, size_t cnt_word, )
+void			ft_set_int(size_t max, size_t cnt_word, char *di_str)//포맷에 맞게 데이터 만드는함수
+{
+	char			*setted_str;
+	return ;
+}
+
+void			ft_export_data(char *word_string)
+{
+	return ;
+}
 
 int				ft_di_word(t_flags *flags, char **input, int value_int)
 {
@@ -24,10 +33,9 @@ int				ft_di_word(t_flags *flags, char **input, int value_int)
 	num_cnt = 0;
 	value_di_string = ft_itoa(value_int);
 	di_string_cnt = ft_strlen(value_di_string);
-	num_cnt = flags->width > str_cnt ? flags->width : str_cnt;
+	num_cnt = flags->width > di_string_cnt ? flags->width : di_string_cnt;
 	num_cnt = flags->dot > num_cnt ? flags->dot : num_cnt;
-	ft_print_width(num_cnt, value_int, )
-	//
+	ft_set_int(num_cnt, )
 
 	num_cnt =
 
