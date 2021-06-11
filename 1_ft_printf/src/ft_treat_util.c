@@ -6,11 +6,11 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 02:09:37 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/05 21:16:32 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/09 17:42:14 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int				ft_treat_width(int width, int minus, int zero)
 {

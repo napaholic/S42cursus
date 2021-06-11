@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 16:35:05 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/05/26 00:35:55 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/12 02:37:27 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static	size_t	get_cnt(long long n)
 	return (cnt);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	long long		tmp_n;
 	size_t			cnt;

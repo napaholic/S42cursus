@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:27:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/07 09:54:15 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/12 06:50:54 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int				ft_put_in_part_di(char *val_di_str, int value_int, t_flags *flags)
 	int				char_cnt;
 
 	char_cnt = 0;
-	if (save_i < 0 && flags->dot >= 0)
+	value_int = 0;
+	if (flags->nbyte < 0)
 		ft_putchar('-');
 	if (flags->dot >= 0)
-		char_cnt += ft_treat_width(flags->dot - 1, ft_strlen(value_int) - 1, 1);
+		char_cnt += ft_treat_width(flags->dot - 1, ft_strlen(val_di_str) - 1, 1);
 	char_cnt += ft_putstrprec(val_di_str, ft_strlen(val_di_str));
 	return (char_cnt);
 }
@@ -31,7 +32,7 @@ static int		ft_put_part_di(char *val_di_str, int save_value, t_flags *flags)
 
 	char_cnt = 0;
 	if (flags->minus == 1)
-		char_cnt += ft_put_in_part_di(val_di_str, tmp_value, flags);
+		char_cnt += ft_put_in_part_di(val_di_str, save_value, flags);
 	if (flags->dot >= 0 && (size_t) flags->dot < ft_strlen(val_di_str))
 		flags->dot = ft_strlen(val_di_str);
 	if (flags->dot >= 0)
@@ -42,13 +43,13 @@ static int		ft_put_part_di(char *val_di_str, int save_value, t_flags *flags)
 	else
 		char_cnt += ft_treat_width(flags->width, ft_strlen(val_di_str), flags->zero);
 	if (flags->minus == 0)
-		char_cnt += ft_put_in_part_di(val_di_str, tmp_value, flags);
+		char_cnt += ft_put_in_part_di(val_di_str, save_value, flags);
 	return (char_cnt);
 }
 
 int				ft_di_word(t_flags *flags, int value_int)
 {
-	int				tmp_value;
+	long long		save_value;
 	char			*val_di_str;
 	size_t			char_cnt;
 
@@ -59,17 +60,17 @@ int				ft_di_word(t_flags *flags, int value_int)
 		char_cnt += ft_treat_width(flags->width, 0, 0);
 		return (char_cnt);
 	}
-	if (value_int < 0 && (flags->dot >= 0 || flags->zero == 1))
+	if (save_value < 0 && (flags->dot >= 0 || flags->zero == 1))
 	{
 		if (flags->zero == 1 && flags->dot == -1)
 			ft_putstrprec("-", 1);
-		value_int *= -1;
-		flags->zero = 1;
+		save_value *= -1;
+		flags->nbyte = -1;
 		flags->width--;
 		char_cnt++;
 	}
-	val_di_str = ft_itoa(value_int);
-	char_cnt += ft_put_part_di(val_di_str, tmp_value, flags);
+	val_di_str = ft_itoa(save_value);
+	char_cnt += ft_put_part_di(val_di_str, save_value, flags);
 	free(val_di_str);
 	return (char_cnt);
 	/*

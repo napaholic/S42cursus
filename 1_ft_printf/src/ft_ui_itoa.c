@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 21:19:07 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/05 21:38:02 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/09 17:49:36 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static size_t		ft_estim(long n)
 	return (estim);
 }
 
-static int			*ft_make_rtn(char *ui_str, long nbr, int len, int isnegative)
+static char			*ft_make_rtn(char *ui_str, long nbr, int len, int isnegative)
 {
 	if (nbr != 0)
-		rtn = malloc(sizeof(char) * (len + 1));
+		ui_str = malloc(sizeof(char) * (len + 1));
 	else
 		return (ui_str = ft_strdup("0"));
 	if (!ui_str)
@@ -44,20 +44,20 @@ static int			*ft_make_rtn(char *ui_str, long nbr, int len, int isnegative)
 		isnegative++;
 		nbr = -nbr;
 	}
-	rtn[len] = '\0';
+	ui_str[len] = '\0';
 	while (--len)
 	{
-		rtn[len] = (nbr % 10) + '0';
+		ui_str[len] = (nbr % 10) + '0';
 		nbr /= 10;
 	}
 	if (isnegative == 1)
-		rtn[0] = '-';
+		ui_str[0] = '-';
 	else
-		rtn[0] = (nbr % 10) + '0';
-	return (rtn);
+		ui_str[0] = (nbr % 10) + '0';
+	return (ui_str);
 }
 
-char				*ft_u_itoa(unsigned int n)
+char				*ft_ui_itoa(unsigned int n)
 {
 	int		len;
 	char	*ui_str;
@@ -66,9 +66,9 @@ char				*ft_u_itoa(unsigned int n)
 
 	nbr = n;
 	len = ft_estim(nbr);
-	rtn = 0;
+	ui_str = 0;
 	isnegative = 0;
-	if (!(rtn = ft_make_rtn(rtn, nbr, len, isnegative)))
+	if (!(ui_str = ft_make_rtn(ui_str, nbr, len, isnegative)))
 		return (0);
 	return (ui_str);
 }

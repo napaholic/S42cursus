@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 01:56:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/02 23:25:53 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/12 06:17:10 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,17 @@ void				ft_flag_minus(t_flags *flags)
 {
 	flags->zero = 0;
 	flags->minus = 1;
-	return (flags);
+	return ;
 }
 
-void				ft_flag_dot(const char **input, t_flags *flags, va_list ap)
+void
+ft_flag_dot(char **input, t_flags *flags, va_list ap)
 {
 	++(*input);
 	if (**input == '*')
 	{
 		flags->dot = va_arg(ap, int);
 		++(*input);
-	}
-	else if(**input == '-')
-	{
-		flags->dot = -1;
-		++(*input);
-		while(ft_isdigit(**input))
-			++(*input);
 	}
 	else
 	{
@@ -54,6 +48,7 @@ void				ft_flag_asterisk(t_flags *flags, va_list ap)
 	{
 		flags->minus = 1;
 		flags->width *= -1;
+		flags->zero = 0;
 	}
 	return ;
 }
@@ -61,7 +56,7 @@ void				ft_flag_asterisk(t_flags *flags, va_list ap)
 void				ft_flag_digit(char c, t_flags *flags)
 {
 	if (flags->asterisk == 1)
-		flags->asterisk = 0;
-	flags->width = (flags->asterisk * 10) + (c - '0');
+		flags->width = 0;
+	flags->width = (flags->width * 10) + (c - '0');
 	return ;
 }
