@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:27:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/12 06:50:54 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/13 00:15:29 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				ft_put_in_part_di(char *val_di_str, int value_int, t_flags *flags)
 
 	char_cnt = 0;
 	value_int = 0;
-	if (flags->nbyte < 0)
+	if (flags->nbyte < 0 && !(flags->zero == 1 && flags->dot < 0))
 		ft_putchar('-');
 	if (flags->dot >= 0)
 		char_cnt += ft_treat_width(flags->dot - 1, ft_strlen(val_di_str) - 1, 1);
@@ -40,6 +40,8 @@ static int		ft_put_part_di(char *val_di_str, int save_value, t_flags *flags)
 		flags->width -= flags->dot;
 		char_cnt += ft_treat_width(flags->width, 0, 0);
 	}
+	else if (flags->minus == 1)
+		char_cnt += ft_treat_width(flags->width, ft_strlen(val_di_str), 0);
 	else
 		char_cnt += ft_treat_width(flags->width, ft_strlen(val_di_str), flags->zero);
 	if (flags->minus == 0)
@@ -62,7 +64,7 @@ int				ft_di_word(t_flags *flags, int value_int)
 	}
 	if (save_value < 0 && (flags->dot >= 0 || flags->zero == 1))
 	{
-		if (flags->zero == 1 && flags->dot == -1)
+		if (flags->zero == 1 && (flags->dot < 0))
 			ft_putstrprec("-", 1);
 		save_value *= -1;
 		flags->nbyte = -1;
