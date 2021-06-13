@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:26:30 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/09 17:20:14 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/13 18:48:44 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ int				ft_str_word(char *str, t_flags *flags)
 		char_count += ft_put_part_int(str, flags);
 	return (char_count);
 }
-

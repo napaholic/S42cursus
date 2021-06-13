@@ -6,21 +6,20 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 01:56:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/12 23:50:35 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/13 18:49:59 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void				ft_flag_minus(t_flags *flags)
+void			ft_flag_minus(t_flags *flags)
 {
 	flags->zero = 0;
 	flags->minus = 1;
 	return ;
 }
 
-void
-ft_flag_dot(char **input, t_flags *flags, va_list ap)
+void			ft_flag_dot(char **input, t_flags *flags, va_list ap)
 {
 	++(*input);
 	if (**input == '*')
@@ -40,7 +39,7 @@ ft_flag_dot(char **input, t_flags *flags, va_list ap)
 	return ;
 }
 
-void				ft_flag_asterisk(t_flags *flags, va_list ap)
+void			ft_flag_asterisk(t_flags *flags, va_list ap)
 {
 	flags->asterisk = 1;
 	flags->width = va_arg(ap, int);
@@ -53,7 +52,7 @@ void				ft_flag_asterisk(t_flags *flags, va_list ap)
 	return ;
 }
 
-void				ft_flag_digit(char c, t_flags *flags)
+void			ft_flag_digit(char c, t_flags *flags)
 {
 	if (flags->asterisk == 1)
 		flags->width = 0;

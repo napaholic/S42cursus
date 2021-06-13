@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 14:48:10 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/12 01:31:27 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/13 18:41:50 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				ft_setword(t_flags *flags, va_list ap)
 
 	char_cnt = 0;
 	if (ft_strchr("di", flags->type))
-		char_cnt +=ft_di_word(flags, va_arg(ap, int));
+		char_cnt += ft_di_word(flags, va_arg(ap, int));
 	else if (ft_strchr("u", flags->type))
 		char_cnt = ft_ui_word(flags, (unsigned int)va_arg(ap, unsigned int));
 	else if (ft_strchr("x", flags->type))
@@ -38,7 +38,7 @@ int				ft_setword(t_flags *flags, va_list ap)
 
 void			ft_flag_figure(t_flags *flags, char **input, va_list ap)
 {
-	while(**input)
+	while (**input)
 	{
 		if (**input == '0' && flags->minus == 0 && flags->width == 0)
 			flags->zero = 1;
@@ -61,18 +61,18 @@ void			ft_flag_figure(t_flags *flags, char **input, va_list ap)
 	return ;
 }
 
-t_flags			ft_initflag(void)
+void			ft_initflag(t_flags *flags))
 {
 	t_flags			flags;
 
-	flags.dot = -1;
-	flags.minus = 0;
-	flags.type = 0;
-	flags.asterisk = 0;
-	flags.width = 0;
-	flags.zero = 0;
-	flags.nbyte = 0;
-	return (flags);
+	flags->dot = -1;
+	flags->minus = 0;
+	flags->type = 0;
+	flags->asterisk = 0;
+	flags->width = 0;
+	flags->zero = 0;
+	flags->nbyte = 0;
+	return ;
 }
 
 int				ft_sign_figure(va_list ap, char *input)
@@ -82,15 +82,13 @@ int				ft_sign_figure(va_list ap, char *input)
 	int			cnt;
 
 	cnt = 0;
-	while(*input)
+	while (*input)
 	{
 		if (*input == '%')
 		{
-			flags = ft_initflag();
+			ft_initflag();
 			++input;
 			ft_flag_figure(&flags, &input, ap);
-			//if ((cnt_word = ft_setword(&flags, ap)) == VALUE_ERROR)
-			//	return (VALUE_ERROR);
 			cnt_word = ft_setword(&flags, ap);
 			cnt += cnt_word;
 		}
