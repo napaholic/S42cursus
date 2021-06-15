@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 16:36:19 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/13 18:47:21 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/15 16:05:09 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_in_put_part_uint(char *unsi_int, t_flags *flags)
 	char_count = 0;
 	if (flags->dot >= 0)
 		char_count += ft_treat_width(flags->dot - 1,
-		\ft_strlen(unsi_int) - 1, 1);
+		ft_strlen(unsi_int) - 1, 1);
 	char_count += ft_putstrprec(unsi_int, ft_strlen(unsi_int));
 	return (char_count);
 }
@@ -46,7 +46,7 @@ static int	ft_put_part_uint(char *unsi_int, t_flags *flags)
 	return (char_count);
 }
 
-int				ft_ui_word(t_flags *flags, unsigned int uint)
+int			ft_ui_word(t_flags *flags, unsigned int uint)
 {
 	char			*unsign_int;
 	int				char_cnt;

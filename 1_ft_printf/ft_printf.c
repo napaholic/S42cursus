@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 14:48:10 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/13 18:41:50 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/15 15:53:40 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ void			ft_flag_figure(t_flags *flags, char **input, va_list ap)
 	return ;
 }
 
-void			ft_initflag(t_flags *flags))
+void			ft_initflag(t_flags *flags)
 {
-	t_flags			flags;
-
 	flags->dot = -1;
 	flags->minus = 0;
 	flags->type = 0;
@@ -86,7 +84,7 @@ int				ft_sign_figure(va_list ap, char *input)
 	{
 		if (*input == '%')
 		{
-			ft_initflag();
+			ft_initflag(&flags);
 			++input;
 			ft_flag_figure(&flags, &input, ap);
 			cnt_word = ft_setword(&flags, ap);

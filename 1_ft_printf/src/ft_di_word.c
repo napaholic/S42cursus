@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 22:27:28 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/13 18:46:43 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/15 16:04:22 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			ft_put_in_part_di(char *val_di_str, int value_int, t_flags *flags)
 		ft_putchar('-');
 	if (flags->dot >= 0)
 		char_cnt += ft_treat_width(flags->dot - 1,
-		\ft_strlen(val_di_str) - 1, 1);
+		ft_strlen(val_di_str) - 1, 1);
 	char_cnt += ft_putstrprec(val_di_str, ft_strlen(val_di_str));
 	return (char_cnt);
 }
@@ -34,7 +34,7 @@ static int	ft_put_part_di(char *val_di_str, int save_value, t_flags *flags)
 	char_cnt = 0;
 	if (flags->minus == 1)
 		char_cnt += ft_put_in_part_di(val_di_str, save_value, flags);
-	if (flags->dot >= 0 && (size_t) flags->dot < ft_strlen(val_di_str))
+	if (flags->dot >= 0 && (size_t)flags->dot < ft_strlen(val_di_str))
 		flags->dot = ft_strlen(val_di_str);
 	if (flags->dot >= 0)
 	{
@@ -44,7 +44,8 @@ static int	ft_put_part_di(char *val_di_str, int save_value, t_flags *flags)
 	else if (flags->minus == 1)
 		char_cnt += ft_treat_width(flags->width, ft_strlen(val_di_str), 0);
 	else
-		char_cnt += ft_treat_width(flags->width, ft_strlen(val_di_str), flags->zero);
+		char_cnt += ft_treat_width(flags->width,
+		ft_strlen(val_di_str), flags->zero);
 	if (flags->minus == 0)
 		char_cnt += ft_put_in_part_di(val_di_str, save_value, flags);
 	return (char_cnt);
