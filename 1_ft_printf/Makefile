@@ -14,7 +14,8 @@ SRCS =  ft_printf.c \
 		src/ft_uint_word.c \
 		src/ft_ull_base.c
 
-SRCS_O =	ft_di_word.o \
+SRCS_O =	ft_printf.o \
+			ft_di_word.o \
 			ft_hexa_word.o \
 			ft_p_word.o \
 			ft_str_word.o \

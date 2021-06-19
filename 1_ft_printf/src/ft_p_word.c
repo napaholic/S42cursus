@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:25:17 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/06/09 17:21:17 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/15 20:36:44 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static int	ft_in_put_part_pointer(char *pointer, t_flags *flags)
 	char_cnt += ft_putstrprec("0x", 2);
 	if (flags->dot >= 0)
 	{
-		char_cnt += ft_treat_width(flags->dot, ft_strlen(pointer), 1);
-		char_cnt += ft_putstrprec(pointer, flags->dot);
+		char_cnt += ft_treat_width(flags->dot, ft_strlen(pointer) + 2, 1);
+		if (!(*pointer == '0'))
+			char_cnt += ft_putstrprec(pointer, flags->dot);
 	}
 	else
 		char_cnt += ft_putstrprec(pointer, ft_strlen(pointer));
@@ -34,10 +35,10 @@ int			ft_p_word(unsigned long long ull, t_flags *flags)
 	int		char_cnt;
 
 	char_cnt = 0;
-	if (ull == 0 && flags->dot == 0)
+	if (ull == 0 && flags->dot == 0 && flags->minus == 1)
 	{
 		char_cnt += ft_putstrprec("0x", 2);
-		return (char_cnt += ft_treat_width(flags->width, 0, 1));
+		return (char_cnt += ft_treat_width(flags->width, 2, 0));
 	}
 	pointer = ft_ull_base(ull, 16);
 	pointer = ft_str_tolower(pointer);
@@ -45,7 +46,10 @@ int			ft_p_word(unsigned long long ull, t_flags *flags)
 		flags->dot = ft_strlen(pointer);
 	if (flags->minus == 1)
 		char_cnt += ft_in_put_part_pointer(pointer, flags);
-	char_cnt += ft_treat_width(flags->width, ft_strlen(pointer) + 2, 0);
+	if (ft_strlen(pointer) == 1 && flags->minus != 1 && flags->dot >= 0)
+		char_cnt += ft_treat_width(flags->width, 2, 0);
+	else
+		char_cnt += ft_treat_width(flags->width, ft_strlen(pointer) + 2, 0);
 	if (flags->minus == 0)
 		char_cnt += ft_in_put_part_pointer(pointer, flags);
 	free(pointer);
