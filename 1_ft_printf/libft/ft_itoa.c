@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 16:35:05 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/01/08 15:51:33 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/12 02:37:27 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static	size_t	get_cnt(long long n)
 	return (cnt);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	long long		tmp_n;
 	size_t			cnt;
@@ -45,7 +45,7 @@ char			*ft_itoa(int n)
 
 	tmp_n = n;
 	cnt = get_cnt(tmp_n);
-	if ((result = malloc(sizeof(char) * cnt + 1)) == NULL)
+	if ((result = ft_calloc(cnt + 1, sizeof(char))) == NULL)
 		return (NULL);
 	s = result;
 	if (n < 0)

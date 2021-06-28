@@ -6,7 +6,7 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 12:25:54 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/02/21 13:18:36 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/11 04:01:38 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,4 @@ char			*ft_strdup(char *s1);
 
 char			*ft_strjoin(char *s1, char *s2);
 #endif
+

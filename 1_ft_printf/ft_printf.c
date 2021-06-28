@@ -6,35 +6,44 @@
 /*   By: jaewkim <jaewkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 14:48:10 by jaewkim           #+#    #+#             */
-/*   Updated: 2021/04/11 17:22:11 by jaewkim          ###   ########.fr       */
+/*   Updated: 2021/06/15 17:10:43 by jaewkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "./includes/ft_printf.h"
 
-int				ft_setword(t_flag *flags, va_list ap)
+int				ft_setword(t_flags *flags, va_list ap)
 {
+	int char_cnt;
+
+	char_cnt = 0;
 	if (ft_strchr("di", flags->type))
-		return (ft_di_word(flags, input, va_arg(ap, int)));
-	if (ft_strchr("u", flags->type))
-		return (ft_u_word(flags, input, ap));
-	if (ft_strchr("xXp", flags->type))
-		return ();
-	if (ft_strchr("cs", flags->type))
-		return ();
-	if (ft_strchr("%", flags->type))
-		return ();
-	return (VALUE_ERROR);
+		char_cnt += ft_di_word(flags, va_arg(ap, int));
+	else if (ft_strchr("u", flags->type))
+		char_cnt = ft_ui_word(flags, (unsigned int)va_arg(ap, unsigned int));
+	else if (ft_strchr("x", flags->type))
+		char_cnt = ft_hexa_word(va_arg(ap, unsigned int), 1, flags);
+	else if (ft_strchr("X", flags->type))
+		char_cnt = ft_hexa_word(va_arg(ap, unsigned int), 0, flags);
+	else if (ft_strchr("p", flags->type))
+		char_cnt = ft_p_word(va_arg(ap, unsigned long long), flags);
+	else if (ft_strchr("c", flags->type))
+		char_cnt = ft_treat_char(va_arg(ap, int), flags);
+	else if (ft_strchr("s", flags->type))
+		char_cnt = ft_str_word(va_arg(ap, char *), flags);
+	else if (ft_strchr("%", flags->type))
+		char_cnt = ft_treat_percent(flags);
+	return (char_cnt);
 }
 
 void			ft_flag_figure(t_flags *flags, char **input, va_list ap)
 {
-	while(**input)
+	while (**input)
 	{
 		if (**input == '0' && flags->minus == 0 && flags->width == 0)
 			flags->zero = 1;
 		if (**input == '-')
-			*flags = ft_flag_minus(*flags)
+			ft_flag_minus(flags);
 		if (**input == '.')
 			ft_flag_dot(input, flags, ap);
 		if (**input == '*')
@@ -52,18 +61,16 @@ void			ft_flag_figure(t_flags *flags, char **input, va_list ap)
 	return ;
 }
 
-t_flags			ft_initflag(void)
+void			ft_initflag(t_flags *flags)
 {
-	t_flags			flags;
-
-	flags.dot = -1;
-	flags.minus = 0;
-	flags.type = 0;
-	flags.asterisk = 0;
-	flags.width = 0;
-	flags.zero = 0;
-	flags.nbyte = 0;
-	return (flags);
+	flags->dot = -1;
+	flags->minus = 0;
+	flags->type = 0;
+	flags->asterisk = 0;
+	flags->width = 0;
+	flags->zero = 0;
+	flags->nbyte = 0;
+	return ;
 }
 
 int				ft_sign_figure(va_list ap, char *input)
@@ -73,15 +80,14 @@ int				ft_sign_figure(va_list ap, char *input)
 	int			cnt;
 
 	cnt = 0;
-	while(*input)
+	while (*input)
 	{
 		if (*input == '%')
 		{
-			flags = ft_initflag();
+			ft_initflag(&flags);
 			++input;
 			ft_flag_figure(&flags, &input, ap);
-			if ((cnt_word = ft_setword(&flags, ap)) == VALUE_ERROR)
-				return (VALUE_ERROR);
+			cnt_word = ft_setword(&flags, ap);
 			cnt += cnt_word;
 		}
 		else
@@ -100,7 +106,7 @@ int				ft_printf(const char *input, ...)
 
 	nbyte = 0;
 	va_start(ap, input);
-	nbyte += ft_sign_figure(ap, (char *)input) >= 0;
+	nbyte += ft_sign_figure(ap, (char *)input);
 	va_end(ap);
 	return (nbyte);
 }
